@@ -5,7 +5,8 @@ Created on Sat Aug 11 16:14:36 2018
 @author: Administrator
 """
 
-def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
+
+def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost=False):
     """
     This function optimizes w and b by running a gradient descent algorithm
     
@@ -28,39 +29,38 @@ def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
         1) Calculate the cost and the gradient for the current parameters. Use propagate().
         2) Update the parameters using gradient descent rule for w and b.
     """
-    
+
     costs = []
-    
+
     for i in range(num_iterations):
-        
-        
+
         # Cost and gradient calculation (≈ 1-4 lines of code)
         ### START CODE HERE ### 
         grads, cost = propagate(w, b, X, Y)
         ### END CODE HERE ###
-        
+
         # Retrieve derivatives from grads
         dw = grads["dw"]
         db = grads["db"]
-        
+
         # update rule (≈ 2 lines of code)
         ### START CODE HERE ###
         w = w - learning_rate * dw
         b = b - learning_rate * db
         ### END CODE HERE ###
-        
+
         # Record the costs
         if i % 100 == 0:
             costs.append(cost)
-        
+
         # Print the cost every 100 training iterations
         if print_cost and i % 100 == 0:
-            print ("Cost after iteration %i: %f" %(i, cost))
-    
+            print("Cost after iteration %i: %f" % (i, cost))
+
     params = {"w": w,
               "b": b}
-    
+
     grads = {"dw": dw,
              "db": db}
-    
+
     return params, grads, costs

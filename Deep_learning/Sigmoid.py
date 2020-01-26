@@ -5,6 +5,7 @@ Created on Sat Aug 11 16:13:45 2018
 @author: Administrator
 """
 
+
 # GRADED FUNCTION: sigmoid
 
 def sigmoid(z):
@@ -21,5 +22,5 @@ def sigmoid(z):
     ### START CODE HERE ### (≈ 1 line of code)
     s = 1 / (1 + np.exp(-(z)))
     ### END CODE HERE ###
-    
+
     return s
