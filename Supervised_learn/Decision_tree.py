@@ -29,5 +29,5 @@ def Tree_pruning():
 
     with open("tree.dot") as fp:
         dot = fp.read()
-    graphviz.Source(dot);
+    graphviz.Source(dot)
     display(tree)
